@@ -1,0 +1,42 @@
+body {
+  background: white;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#container {
+  max-width: 700px;
+  padding: 20px;
+  text-align: center;
+}
+
+.section {
+  display: none;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.section.visible {
+  display: block;
+  animation: fadeIn 0.8s ease;
+}
+
+h1, h2, h3 {
+  margin: 0.5rem 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
