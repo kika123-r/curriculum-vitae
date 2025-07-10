@@ -2,21 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.section');
   let currentSection = 0;
 
-  function showNextSection() {
-    if (currentSection < sections.length) {
-      sections[currentSection].classList.add('visible');
-      currentSection++;
-    }
+  function showSection(index) {
+    sections.forEach((section, i) => {
+      if (i === index) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
+    });
   }
 
-  // Zobraz prvú sekciu hneď
-  showNextSection();
-
-  // Po stlačení ENTER zobraz ďalšiu
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      showNextSection();
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentSection < sections.length - 1) {
+      currentSection++;
+      showSection(currentSection);
     }
   });
+
+  document.getElementById('backBtn').addEventListener('click', () => {
+    if (currentSection > 0) {
+      currentSection--;
+      showSection(currentSection);
+    }
+  });
+
+  // Inicializuj na prvú sekciu
+  showSection(currentSection);
 });
