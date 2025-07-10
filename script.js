@@ -4,11 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showSection(index) {
     sections.forEach((section, i) => {
-      if (i === index) {
-        section.classList.add('visible');
-      } else {
-        section.classList.remove('visible');
-      }
+      section.classList.toggle('visible', i === index);
     });
   }
 
@@ -26,6 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Inicializuj na prvú sekciu
   showSection(currentSection);
 });
